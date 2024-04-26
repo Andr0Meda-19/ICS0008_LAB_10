@@ -68,7 +68,8 @@ function createTable() {
 }
 
 
-form.addEventListener("submit", () => {
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
     var productInput = document.form.product.value;
     var quantityInput = document.form.quantity.value;
