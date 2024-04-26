@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js" defer></script>
+        <!-- <script src="./script.js"></script> -->
+        <title>Shopping List</title>
+    </head>
+    <body>
+        <noscript> Your browser does not support JavaScript, or scripts are disabled! </noscript>
+        <h1 id="heading">Please log in!</h1>
+        <div class="container">
+            <br>
+            <button id="logout">Log out</button>
+            <br>
+            <form id="form" name="form">
+                <label for="product">Product: </label>
+                <input type="text" id="product" name="product" required>
+                <label for="quantity">Quantity: </label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+                <button type="submit">Add to list</button>
+            </form>
+            <br>
+            <table id="shopTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Table contents go here -->
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
