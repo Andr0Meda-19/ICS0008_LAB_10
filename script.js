@@ -1,9 +1,9 @@
 var userName = checkCookie();
 
 function checkCookie() {
-    var name = getCookie("username");
+    var name = getCookie("username233797");
     if (!name) {
-        name = sessionStorage.getItem("username");
+        name = sessionStorage.getItem("username233797");
         if (!name) {
             while (!name || !name.trim()) {
                 name = prompt("Please login by entering your username:");
@@ -14,8 +14,9 @@ function checkCookie() {
                 }
             }
             // Store the name in cookies and session storage
-            document.cookie = "username=" + name;
-            sessionStorage.setItem("username", name);
+            // document.cookie = "username=" + name;
+            setCookie("username233797", name, 1);
+            sessionStorage.setItem("username233797", name);
             return name;
         }
     }
@@ -33,8 +34,14 @@ function getCookie(name) {
     return "";
 }
 
+function setCookie(name, value, days) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+}
+
 document.getElementById("heading").innerText = userName + "'s shopping list!";
-var shoppingList = JSON.parse(localStorage.getItem(userName + "List")) || [];
+var shoppingList = JSON.parse(localStorage.getItem("233797" + userName + "List")) || [];
 var form = document.getElementById("form");
 var tableBody = document.getElementById("tableBody");
 
@@ -45,14 +52,14 @@ function createTable() {
         var row = tableBody.insertRow();
 
         row.insertCell().innerText = index + 1 + ".";
-        row.insertCell().innerText = listItem.product;
-        row.insertCell().innerText = listItem.quantity;
+        row.insertCell().innerText = listItem.product233797;
+        row.insertCell().innerText = listItem.quantity233797;
 
         row.addEventListener("click", () => {
-            var confirmation = confirm("Are you sure you want to delete " + listItem.quantity + " " + listItem.product + "?");
+            var confirmation = confirm("Are you sure you want to delete " + listItem.quantity233797 + " " + listItem.product233797 + "?");
             if (confirmation) {
                 shoppingList.splice(index, 1);
-                localStorage.setItem(userName + "List", JSON.stringify(shoppingList));
+                localStorage.setItem("233797" + userName + "List", JSON.stringify(shoppingList));
                 tableBody.deleteRow(index);
                 createTable();
             }
@@ -76,12 +83,12 @@ form.addEventListener("submit", () => {
         alert("Only digits (0-9) are allowed in quantity field!");
     } else {
         var newItem = {
-            product: productInput,
-            quantity: quantityInput
+            product233797: productInput,
+            quantity233797: quantityInput
         };
 
         shoppingList.push(newItem);
-        localStorage.setItem(userName + "List", JSON.stringify(shoppingList));
+        localStorage.setItem("233797" + userName + "List", JSON.stringify(shoppingList));
 
         document.form.product.value = "";
         document.form.quantity.value = "";
@@ -93,8 +100,8 @@ form.addEventListener("submit", () => {
 var logoutButton = document.getElementById("logout");
 
 logoutButton.addEventListener("click", () => {
-    document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
-    sessionStorage.removeItem("username");
+    document.cookie = "username233797=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+    sessionStorage.removeItem("username233797");
     document.getElementsByTagName("body").id = "hide";
     location.reload();
 });
